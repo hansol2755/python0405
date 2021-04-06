@@ -18,3 +18,4 @@ print("참조 횟수:{0}".format(sys.getrefcount(d)) )
 #del d
 
 print("전체코드 실행 종료")
+print("aaa")
