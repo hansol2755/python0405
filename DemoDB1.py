@@ -20,5 +20,26 @@ datalist = (("tom", "010-123"), ("dsp", "010-567"))
 cur.executemany("insert into PhoneBook values (?, ?);", (datalist))
 #검색
 cur.execute("select * from PhoneBook;")
-for row in cur:
-    print(row)
+# for row in cur:
+#     print(row)
+
+#1건 검색
+print("---fetchone()---")
+print( cur.fetchone() )
+#N건 검색
+print("---fetchmany(2)---")
+print( cur.fetchmany(2) )
+print("---fetchall()---")
+cur.execute("select * from PhoneBook;")
+print( cur.fetchall() )
+
+#결과를 슬라이싱
+cur.execute("select * from PhoneBook;")
+result = cur.fetchone()
+print(result[0])
+print(result[1])
+#2차원 행열 데이터 [행][열]
+print("---다중행의 경우---")
+result = cur.fetchall()
+print(result[0][0])
+print(result[0][1])
